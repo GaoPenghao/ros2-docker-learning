@@ -1,0 +1,36 @@
+services:
+  ros2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USERNAME: ${USERNAME:-zy}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    image: ros2-jazzy-learning:latest
+    container_name: ros2_jazzy_dev
+    hostname: ros2-dev
+    extra_hosts:
+      - "ros2-dev:127.0.0.1"
+
+    network_mode: host
+
+    stdin_open: true
+    tty: true
+
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # DDS 实现与 domin id,保证宿主机与容器可互相发现
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_DOMAIN_ID=42
+      - HOME=/home/${USERNAME:-zy}
+      - TERM=xterm-256color
+
+    volumes:
+      # X11 显示
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      # 映射整个宿主机用户目录到容器内相同路径
+      - /home/${USERNAME:-zy}:/home/${USERNAME:-zy}
+
+    command: bash
