@@ -111,3 +111,26 @@ docker builder prune -f
 # 4. 清理未使用的镜像
 docker system prune -a
 ```
+
+## 实用的配置
+由于容器内映射了宿主机的 `home` 目录，所以可以在宿主机或容器内修改 `.bashrc` 文件，以实现某些便捷的配置。
+
+### 增加容器提示符
+
+目的是便于区分容器终端和宿主机终端，在 `.bashrc` 中增加如下内容即可
+```bash
+# ===== Docker 容器提示符标识（仅在容器内生效）=====
+if [ -f /.dockerenv ]; then
+    PS1='\[\e[31m\][docker]\[\e[0m\] '"$PS1"
+fi
+```
+
+### 自动 source ros2 jazzy
+
+在 `.bashrc` 中增加如下内容
+```bash
+# ==== 自动 source ros2 jazzy ====
+if [ -f /opt/ros/jazzy/setup.bash ]; then
+    source /opt/ros/jazzy/setup.bash
+fi
+```
