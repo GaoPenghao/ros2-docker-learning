@@ -134,3 +134,19 @@ if [ -f /opt/ros/jazzy/setup.bash ]; then
     source /opt/ros/jazzy/setup.bash
 fi
 ```
+
+### tmux 配置
+
+```bash
+touch ~/.tmux.conf
+# 将以下内容 copy 进 .tmux.conf 中
+# ~/.tmux.conf
+set-option -g mouse on
+set -g default-terminal "screen-256color"
+set -g history-limit 50000
+set -g base-index 1
+set -g window-active-style "bg=colour235"
+setw -g mode-keys vi
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -selection clipboard -i"
+```

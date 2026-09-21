@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     tmux \
+    xclip \
     sudo \
     ncurses-term \
     && rm -rf /var/lib/apt/lists/*
