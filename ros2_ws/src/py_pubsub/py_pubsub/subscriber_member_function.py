@@ -5,8 +5,10 @@ from std_msgs.msg import String
 
 class MinimalSubscriber(Node):
     def __init__(self):
-        super().__init__('minimal_subscriber')
-        self.subscription_ = self.create_subscription(String, 'topic', self.listener_callback, 1)
+        super().__init__("minimal_subscriber")
+        self.subscription_ = self.create_subscription(
+            String, "topic", self.listener_callback, 1
+        )
 
     def listener_callback(self, msg):
         self.get_logger().info(f'I heard: "{msg.data}"')
@@ -20,5 +22,5 @@ def main(args=None):
     rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

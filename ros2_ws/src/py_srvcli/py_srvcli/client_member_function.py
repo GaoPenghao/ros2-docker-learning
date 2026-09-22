@@ -6,10 +6,10 @@ from tutorial_interfaces.srv import AddTwoInts
 
 class MinimalClientAsync(Node):
     def __init__(self):
-        super().__init__('minimal_client_async')
-        self.cli = self.create_client(AddTwoInts, 'add_two_ints')
+        super().__init__("minimal_client_async")
+        self.cli = self.create_client(AddTwoInts, "add_two_ints")
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info("service not available, waiting again...")
         self.req = AddTwoInts.Request()
 
     def send_request(self, a, b):
@@ -25,10 +25,11 @@ def main(args=None):
     min_cli = MinimalClientAsync()
     response = min_cli.send_request(int(sys.argv[1]), int(sys.argv[2]))
     min_cli.get_logger().info(
-        f'Result of add_two_ints: for {sys.argv[1]} + {sys.argv[2]} = {response.sum}')
+        f"Result of add_two_ints: for {sys.argv[1]} + {sys.argv[2]} = {response.sum}"
+    )
     min_cli.destroy_node()
     rclpy.shutdown()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
