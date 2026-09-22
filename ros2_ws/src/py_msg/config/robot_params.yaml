@@ -1,0 +1,10 @@
+/robot_status_publisher:
+  ros__parameters:
+    initial_battery: 80.0
+    publish_period: 0.5
+    robot_name: 'yaml_bot'
+
+
+/robot_status_subscriber:
+  ros__parameters:
+    use_sim_time: false
