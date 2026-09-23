@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot name="tall_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="common_macros.xacro" />
+
+    <xacro:property name="column_length" value="1.0" />
+    <xacro:property name="column_radius" value="0.08" />
+
+    <xacro:declare_material name="red" rgba="0.8 0.2 0.2 1.0" />
+
+    <xacro:cylinder_link
+        name="column_link"
+        radius="${column_radius}" length="${column_length}"
+        mass="2.0" color="red" />
+
+    <link name="base_link" />
+
+    <joint name="base_to_column" type="fixed">
+        <parent link="base_link" />
+        <child link="column_link" />
+        <origin xyz="0 0 0.5" rpy="0 0 0" />
+    </joint>
+
+</robot>

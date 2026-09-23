@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-rosdep \
     ros-dev-tools \
     ros-jazzy-rmw-cyclonedds-cpp \
+    ros-jazzy-xacro \
+    ros-jazzy-turtle-tf2-py \
+    ros-jazzy-tf2-tools \
+    ros-jazzy-joint-state-publisher-gui \
     vim \
     git \
     curl \

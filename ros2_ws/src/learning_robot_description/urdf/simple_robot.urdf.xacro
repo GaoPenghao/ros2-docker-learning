@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot name="simple_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ============ 引入通用宏 ============ -->
+    <xacro:include filename="common_macros.xacro" />
+
+    <!-- ================= 属性定义 ================= -->
+    <xacro:property name="base_length" value="0.6" />
+    <xacro:property name="base_width" value="0.4" />
+    <xacro:property name="base_height" value="0.2" />
+    <xacro:property name="base_mass" value="5.0" />
+
+    <xacro:property name="column_radius" value="0.05" />
+    <xacro:property name="column_length" value="0.4" />
+    <xacro:property name="column_mass" value="1.0" />
+
+    <xacro:property name="arm_length" value="0.5" />
+    <xacro:property name="arm_width" value="0.05" />
+    <xacro:property name="arm_height" value="0.05" />
+    <xacro:property name="arm_mass" value="0.5" />
+
+    <xacro:property name="column_z" value="0.3" />
+    <xacro:property name="arm_z" value="0.2" />
+
+    <!-- ============ 材质 ============ -->
+    <xacro:declare_material name="blue" rgba="0.2 0.2 0.8 1.0" />
+    <xacro:declare_material name="red" rgba="0.8 0.2 0.2 1.0" />
+    <xacro:declare_material name="green" rgba="0.2 0.8 0.2 1.0" />
+
+    <!-- ================= 用宏生成 link ================= -->
+    <xacro:box_link name="base_link" length="${base_length}" width="${base_width}"
+        height="${base_height}" mass="${base_mass}" color="blue" />
+
+    <xacro:cylinder_link name="column_link" radius="${column_radius}" length="${column_length}"
+        mass="${column_mass}" color="red" />
+
+    <xacro:box_link name="arm_link" length="${arm_length}" width="${arm_width}"
+        height="${arm_height}" mass="${arm_mass}" color="green" origin="${arm_length/2} 0 0" />
+
+    <!-- <xacro:box_link name="leg_link" length="0.05" width="0.05" height="0.3" mass="0.3" color="blue"
+        origin="0 0 -0.1" /> -->
+
+    <!-- ================= 关节 ================= -->
+    <joint name="base_to_column" type="fixed">
+        <parent link="base_link" />
+        <child link="column_link" />
+        <origin xyz="0 0 ${column_z}" rpy="0 0 0" />
+    </joint>
+
+    <joint name="column_to_arm" type="revolute">
+        <parent link="column_link" />
+        <child link="arm_link" />
+        <origin xyz="0 0 ${arm_z}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0" />
+    </joint>
+
+    <!-- <joint name="base_to_leg" type="fixed">
+        <parent link="base_link" />
+        <child link="leg_link" />
+        <origin xyz="0.2 0.15 -0.1" rpy="0 0 0" />
+    </joint> -->
+
+</robot>

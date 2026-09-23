@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot name="simple_robot">
+
+    <!-- 底座 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.6 0.4 0.2" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="blue">
+                <color rgba="0.2 0.2 0.8 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.6 0.4 0.2" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="5.0" />
+            <inertia ixx="0.08333" ixy="0.0" ixz="0.0" iyy="0.16667" iyz="0.0" izz="0.21667" />
+        </inertial>
+    </link>
+
+    <!-- 立柱 -->
+    <link name="column_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.4" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="red">
+                <color rgba="0.8 0.2 0.2 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.4" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="1.0" />
+            <inertia ixx="0.01396" ixy="0.0" ixz="0.0" iyy="0.01396" iyz="0.0" izz="0.00125" />
+        </inertial>
+    </link>
+
+    <joint name="base_to_column" type="fixed">
+        <parent link="base_link" />
+        <child link="column_link" />
+        <origin xyz="0 0 0.3" rpy="0 0 0" />
+    </joint>
+
+    <!-- 手臂 -->
+    <link name="arm_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.05 0.05" />
+            </geometry>
+            <origin xyz="0.25 0 0" rpy="0 0 0" />
+            <material name="green">
+                <color rgba="0.2 0.8 0.2 1.0" />
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.5 0.05 0.05" />
+            </geometry>
+            <origin xyz="0.25 0 0" rpy="0 0 0" />
+        </collision>
+        <inertial>
+            <origin xyz="0.25 0 0" rpy="0 0 0" />
+            <mass value="0.5" />
+            <inertia ixx="0.000208" ixy="0.0" ixz="0.0" iyy="0.010521" iyz="0.0" izz="0.010521" />
+        </inertial>
+    </link>
+
+    <joint name="column_to_arm" type="revolute">
+        <parent link="column_link" />
+        <child link="arm_link" />
+        <origin xyz="0 0 0.2" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit lower="-1.57" upper="1.57" effort="10.0" velocity="1.0" />
+    </joint>
+
+</robot>
