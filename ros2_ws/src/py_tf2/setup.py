@@ -25,6 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             'static_broadcaster = py_tf2.static_broadcaster:main',
+            'dynamic_broadcaster = py_tf2.dynamic_broadcaster:main',
+            'tf2_listener = py_tf2.tf2_listener:main',
         ],
     },
 )
