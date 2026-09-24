@@ -26,5 +26,10 @@ venv/
 CMakeFiles/
 CMakeCache.txt
 
+# bag 文件
+bags/
+*.mcap
+*.db3
+
 # 其他
 .DS_Store

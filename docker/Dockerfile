@@ -14,6 +14,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-jazzy-turtle-tf2-py \
     ros-jazzy-tf2-tools \
     ros-jazzy-joint-state-publisher-gui \
+    ros-jazzy-ros-gz \
+    ros-jazzy-ros-gz-sim \
+    ros-jazzy-ros-gz-bridge \
+    ros-jazzy-ros-gz-sim-demos \
     vim \
     git \
     curl \

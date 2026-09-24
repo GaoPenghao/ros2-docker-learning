@@ -37,7 +37,8 @@
     <xacro:box_link name="arm_link" length="${arm_length}" width="${arm_width}"
         height="${arm_height}" mass="${arm_mass}" color="green" origin="${arm_length/2} 0 0" />
 
-    <!-- <xacro:box_link name="leg_link" length="0.05" width="0.05" height="0.3" mass="0.3" color="blue"
+    <!-- <xacro:box_link name="leg_link" length="0.05" width="0.05" height="0.3" mass="0.3"
+    color="blue"
         origin="0 0 -0.1" /> -->
 
     <!-- ================= 关节 ================= -->
