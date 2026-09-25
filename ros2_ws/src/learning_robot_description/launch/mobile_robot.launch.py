@@ -26,7 +26,7 @@ def generate_launch_description() -> LaunchDescription:
     diff_drive_controller_node = Node(
         package="cpp_mobile_robot",
         executable="diff_drive_controller",
-        parameters=[{"wheel_separation_est": 0.20}],  # 故意用与 URDF 不同的值进行测试
+        # parameters=[{"wheel_separation_est": 0.20}],  # 故意用与 URDF 不同的值进行测试
         output="screen",
     )
 
