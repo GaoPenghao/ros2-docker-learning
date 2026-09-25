@@ -1,3 +1,8 @@
+# 这个 relay 做两件事：
+# 1. 把 diff_drive_controller 的 odom 从带前缀的话题转发到 /odom
+# 2. 把 /cmd_vel (Twist) 转换成 /diff_drive_controller/cmd_vel (TwistStamped)
+# 将来 ros2_control 支持话题名和类型配置后，可以去掉这个 relay
+
 from typing import Optional
 
 import rclpy
