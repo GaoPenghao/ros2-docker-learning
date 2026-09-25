@@ -6,7 +6,7 @@ import subprocess
 
 
 def generate_launch_description() -> LaunchDescription:
-    pkg_share = get_package_share_directory("learning_robot_description")
+    pkg_share = get_package_share_directory("learning_robot")
     urdf_file = os.path.join(pkg_share, "urdf", "mobile_robot.urdf.xacro")
     rviz_file = os.path.join(pkg_share, "rviz", "display.rviz")
 

@@ -19,12 +19,15 @@ FibonacciActionServer::FibonacciActionServer(const rclcpp::NodeOptions& options)
 rclcpp_action::GoalResponse FibonacciActionServer::handle_goal(
     const rclcpp_action::GoalUUID& uuid,
     std::shared_ptr<const Fibonacci::Goal> goal) {
+  (void)uuid;
+  (void)goal;
   RCLCPP_INFO(this->get_logger(), "Received goal request");
   return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
 }
 
 rclcpp_action::CancelResponse FibonacciActionServer::handle_cancel(
     const std::shared_ptr<GoalHandleFibonacci> goal_handle) {
+  (void)goal_handle;
   RCLCPP_INFO(this->get_logger(), "Received cancel request");
   return rclcpp_action::CancelResponse::ACCEPT;
 }

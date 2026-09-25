@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = "py_mobile_robot"
+package_name = "py_obstacle_avoidance"
 
 setup(
     name=package_name,
@@ -23,10 +23,7 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "diff_drive_controller = py_mobile_robot.diff_drive_controller:main",
-            "square_walker = py_mobile_robot.square_walker:main",
-            "system_clock_publisher = py_mobile_robot.system_clock_publisher:main",
-            "topic_relay = py_mobile_robot.topic_relay:main",
+            "obstacle_avoidance = py_obstacle_avoidance.obstacle_avoidance_node:main",
         ],
     },
 )
