@@ -1,0 +1,15 @@
+geometry_msgs/PoseStamped pose
+string behavior_tree
+---
+# Error code
+# Note: The excepted priority order of the errors should match the message order
+uint16 NONE=0
+
+uint16 error_code
+string error_msg
+---
+geometry_msgs/PoseStamped current_pose
+builtin_interfaces/Duration navigation_time
+builtin_interfaces/Duration estimated_time_remaining
+int16 number_of_recoveries
+float32 distance_remaining
