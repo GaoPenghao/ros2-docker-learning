@@ -5,6 +5,7 @@ add_library(${library_name} SHARED
   array_parser.cpp 
   node_utils.cpp 
   lifecycle_node.cpp 
+  odometry_utils.cpp 
 )
 target_include_directories(${library_name} PUBLIC 
   "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>"
