@@ -21,6 +21,7 @@ target_link_libraries(${library_name} PUBLIC
   bondcpp::bondcpp
   rclcpp_lifecycle::rclcpp_lifecycle
   ${lifecycle_msgs_TARGETS}
+  rclcpp_action::rclcpp_action
 )
 target_link_libraries(${library_name} PRIVATE
   ${bond_TARGETS}

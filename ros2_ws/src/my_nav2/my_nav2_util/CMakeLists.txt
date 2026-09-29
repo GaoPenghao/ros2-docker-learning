@@ -15,6 +15,7 @@ find_package(bond REQUIRED)
 find_package(bondcpp REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 my_nav2_package()
 
@@ -39,6 +40,7 @@ ament_export_dependencies(
   bondcpp
   lifecycle_msgs
   rclcpp_lifecycle
+  rclcpp_action
 )
 ament_export_targets(${library_name})
 
