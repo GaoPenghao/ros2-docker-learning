@@ -4,16 +4,30 @@ project(my_nav2_costmap_2d)
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(my_nav2_common REQUIRED)
+find_package(my_nav2_util REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 my_nav2_package()
 
 add_library(${PROJECT_NAME}_core SHARED
   src/costmap_math.cpp
+  src/costmap_2d.cpp
 )
 add_library(${PROJECT_NAME}::${PROJECT_NAME}_core ALIAS ${PROJECT_NAME}_core)
 target_include_directories(${PROJECT_NAME}_core PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+)
+
+set(dependencies 
+  geometry_msgs
+  nav_msgs
+  my_nav2_util
+)
+
+ament_target_dependencies(${PROJECT_NAME}_core
+  ${dependencies}
 )
 
 install(TARGETS ${PROJECT_NAME}_core
@@ -28,6 +42,6 @@ install(DIRECTORY include/
 )
 
 ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
-ament_export_include_directories(include/${PROJECT_NAME})
+ament_export_dependencies(${dependencies})
 
 ament_package()

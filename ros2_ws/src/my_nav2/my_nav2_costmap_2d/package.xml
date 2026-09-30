@@ -8,8 +8,11 @@
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>my_nav2_common</build_depend>
 
-  <depend>my_nav2_common</depend>
+  <depend>my_nav2_util</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
