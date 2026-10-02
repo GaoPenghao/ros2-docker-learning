@@ -13,6 +13,7 @@ my_nav2_package()
 add_library(${PROJECT_NAME}_core SHARED
   src/costmap_math.cpp
   src/costmap_2d.cpp
+  src/layer.cpp 
 )
 add_library(${PROJECT_NAME}::${PROJECT_NAME}_core ALIAS ${PROJECT_NAME}_core)
 target_include_directories(${PROJECT_NAME}_core PUBLIC
