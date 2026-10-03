@@ -21,6 +21,13 @@ ros2-docker-learning/
 - 已安装 Docker Engine 与 Docker Compose 插件
 - 宿主机用户 `zy`（UID/GID 均为 1000），如果不同请修改 `docker/.env`
 
+如果不存在 docker/.env 文件，则新建，内容大致如下
+```
+USERNAME=zy
+USER_UID=1000
+USER_GID=1000
+```
+
 首次使用前，在宿主机上执行一次（允许容器访问 X11，用于显示 GUI）：
 ```bash
 xhost +local:docker

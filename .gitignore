@@ -31,5 +31,8 @@ bags/
 *.mcap
 *.db3
 
+# env
+docker/.env
+
 # 其他
 .DS_Store
