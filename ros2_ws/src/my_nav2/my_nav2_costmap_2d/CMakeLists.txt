@@ -16,6 +16,7 @@ add_library(${PROJECT_NAME}_core SHARED
   src/layer.cpp 
   src/footprint.cpp 
   src/layered_costmap.cpp
+  src/footprint_collision_checker.cpp
 )
 add_library(${PROJECT_NAME}::${PROJECT_NAME}_core ALIAS ${PROJECT_NAME}_core)
 target_include_directories(${PROJECT_NAME}_core PUBLIC

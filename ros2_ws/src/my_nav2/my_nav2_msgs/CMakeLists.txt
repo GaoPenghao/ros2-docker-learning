@@ -31,6 +31,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/VoxelGrid.msg"
   "msg/CostmapFilterInfo.msg"
   "msg/MissedWaypoint.msg"
+  # srv
+  "srv/GetCost.srv"
+  "srv/ClearCostmapAroundPose.srv"
+  "srv/ClearCostmapAroundRobot.srv"
+  "srv/ClearCostmapExceptRegion.srv"
+  "srv/ClearEntireCostmap.srv"
   # action
   "action/NavigateToPose.action"
   "action/ComputePathToPose.action"
