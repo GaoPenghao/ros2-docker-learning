@@ -7,6 +7,9 @@ find_package(my_nav2_common REQUIRED)
 find_package(my_nav2_util REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(map_msgs REQUIRED)
+find_package(my_nav2_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 my_nav2_package()
 
@@ -18,6 +21,7 @@ add_library(${PROJECT_NAME}_core SHARED
   src/layered_costmap.cpp
   src/footprint_collision_checker.cpp
   src/costmap_layer.cpp
+  src/costmap_2d_publisher.cpp
 )
 add_library(${PROJECT_NAME}::${PROJECT_NAME}_core ALIAS ${PROJECT_NAME}_core)
 target_include_directories(${PROJECT_NAME}_core PUBLIC
@@ -29,6 +33,9 @@ set(dependencies
   geometry_msgs
   nav_msgs
   my_nav2_util
+  map_msgs
+  my_nav2_msgs
+  tf2_geometry_msgs
 )
 
 ament_target_dependencies(${PROJECT_NAME}_core
