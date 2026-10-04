@@ -37,6 +37,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ClearCostmapAroundRobot.srv"
   "srv/ClearCostmapExceptRegion.srv"
   "srv/ClearEntireCostmap.srv"
+  "srv/GetCostmap.srv"
   # action
   "action/NavigateToPose.action"
   "action/ComputePathToPose.action"
