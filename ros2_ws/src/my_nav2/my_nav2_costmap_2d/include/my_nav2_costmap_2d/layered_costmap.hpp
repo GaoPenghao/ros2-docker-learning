@@ -9,7 +9,6 @@
 #include "geometry_msgs/msg/point.hpp"
 #include "my_nav2_costmap_2d/cost_values.hpp"
 #include "my_nav2_costmap_2d/costmap_2d.hpp"
-#include "my_nav2_costmap_2d/layer.hpp"
 
 namespace my_nav2::costmap_2d {
 

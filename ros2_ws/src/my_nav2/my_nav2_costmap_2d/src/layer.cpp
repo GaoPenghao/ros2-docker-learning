@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 
+#include "my_nav2_costmap_2d/layered_costmap.hpp"
 #include "my_nav2_util/node_utils.hpp"
 
 namespace my_nav2::costmap_2d {

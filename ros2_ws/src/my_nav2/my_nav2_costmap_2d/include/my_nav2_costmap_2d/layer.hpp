@@ -7,7 +7,6 @@
 
 #include "geometry_msgs/msg/point.hpp"
 #include "my_nav2_costmap_2d/costmap_2d.hpp"
-#include "my_nav2_costmap_2d/layered_costmap.hpp"
 #include "my_nav2_util/lifecycle_node.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "tf2_ros/buffer.hpp"

@@ -1,6 +1,7 @@
 #ifndef MY_NAV2_COSTMAP_2D__COSTMAP_LAYER_HPP_
 #define MY_NAV2_COSTMAP_2D__COSTMAP_LAYER_HPP_
 
+#include "my_nav2_costmap_2d/cost_values.hpp"
 #include "my_nav2_costmap_2d/costmap_2d.hpp"
 #include "my_nav2_costmap_2d/layer.hpp"
 

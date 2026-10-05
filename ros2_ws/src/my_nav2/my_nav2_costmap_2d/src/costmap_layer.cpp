@@ -5,6 +5,7 @@
 #include <stdexcept>
 
 #include "my_nav2_costmap_2d/cost_values.hpp"
+#include "my_nav2_costmap_2d/layered_costmap.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 namespace my_nav2::costmap_2d {

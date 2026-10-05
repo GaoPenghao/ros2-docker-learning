@@ -6,6 +6,7 @@
 #include <stdexcept>
 
 #include "my_nav2_costmap_2d/footprint.hpp"
+#include "my_nav2_costmap_2d/layer.hpp"
 
 namespace my_nav2::costmap_2d {
 
