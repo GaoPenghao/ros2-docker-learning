@@ -26,6 +26,7 @@ add_library(${PROJECT_NAME}_core SHARED
   src/costmap_layer.cpp
   src/costmap_2d_publisher.cpp
   src/clear_costmap_service.cpp
+  src/costmap_2d_ros.cpp
 )
 add_library(${PROJECT_NAME}::${PROJECT_NAME}_core ALIAS ${PROJECT_NAME}_core)
 target_include_directories(${PROJECT_NAME}_core PUBLIC
