@@ -36,5 +36,8 @@ bags/
 # env
 docker/.env
 
+# tmp
+tmp/
+
 # 其他
 .DS_Store
