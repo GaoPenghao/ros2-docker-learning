@@ -5,6 +5,7 @@
 #include "my_nav2_costmap_2d/costmap_2d_ros.hpp"
 #include "my_nav2_costmap_2d/layer.hpp"
 #include "tf2/exceptions.hpp"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 
 namespace my_nav2::costmap_2d {
 

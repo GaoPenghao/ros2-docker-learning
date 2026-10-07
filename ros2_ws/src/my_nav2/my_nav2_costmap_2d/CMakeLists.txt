@@ -14,6 +14,18 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(pluginlib REQUIRED)
 
+set(dependencies 
+  geometry_msgs
+  nav_msgs
+  my_nav2_util
+  map_msgs
+  my_nav2_msgs
+  tf2_geometry_msgs
+  tf2
+  tf2_ros
+  pluginlib
+)
+
 my_nav2_package()
 
 add_library(${PROJECT_NAME}_core SHARED
@@ -33,19 +45,6 @@ target_include_directories(${PROJECT_NAME}_core PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
 )
-
-set(dependencies 
-  geometry_msgs
-  nav_msgs
-  my_nav2_util
-  map_msgs
-  my_nav2_msgs
-  tf2_geometry_msgs
-  tf2
-  tf2_ros
-  pluginlib
-)
-
 ament_target_dependencies(${PROJECT_NAME}_core
   ${dependencies}
 )
@@ -62,6 +61,15 @@ target_link_libraries(layers
   ${PROJECT_NAME}::${PROJECT_NAME}_core
 )
 
+add_executable(${PROJECT_NAME} src/costmap_2d_node.cpp)
+target_link_libraries(${PROJECT_NAME}
+  ${PROJECT_NAME}::${PROJECT_NAME}_core
+  ${PROJECT_NAME}::layers
+)
+ament_target_dependencies(${PROJECT_NAME}
+  ${dependencies}
+)
+
 install(TARGETS 
   ${PROJECT_NAME}_core 
   layers
@@ -69,6 +77,10 @@ install(TARGETS
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
+)
+
+install(TARGETS ${PROJECT_NAME}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 install(DIRECTORY include/
