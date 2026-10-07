@@ -4,5 +4,10 @@
             base_class_type="my_nav2::costmap_2d::Layer">
             <description>Listens to OccupancyGrid messages and copies them in, like from map_server.</description>
         </class>
+        <class type="my_nav2::costmap_2d::InflationLayer"
+            base_class_type="my_nav2::costmap_2d::Layer">
+            <description>Inflates obstacles to speed collision checking and to make robot prefer to
+                stay away from obstacles.</description>
+        </class>
     </library>
 </class_libraries>

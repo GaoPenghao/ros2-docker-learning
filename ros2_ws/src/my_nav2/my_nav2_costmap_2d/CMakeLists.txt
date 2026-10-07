@@ -52,6 +52,7 @@ ament_target_dependencies(${PROJECT_NAME}_core
 
 add_library(layers SHARED
   plugins/static_layer.cpp
+  plugins/inflation_layer.cpp
 )
 add_library(${PROJECT_NAME}::layers ALIAS layers)
 ament_target_dependencies(layers
