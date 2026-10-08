@@ -1,5 +1,5 @@
 services:
-  ros2:
+  ros2-jazzy:
     build:
       context: .
       dockerfile: Dockerfile
